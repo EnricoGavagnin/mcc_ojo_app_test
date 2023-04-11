@@ -56,7 +56,7 @@ def filter_job(latest_job: str, sector_select: str, data: Dict[str, List[Dict[st
             - List[str]: ordered list of names of top matches
             - Dict[str, int]: key: match, value: percent of skills already posessed
     """
-    filtered_data =  data[latest_job] # here add [sector_select] for high-priority selection
+    filtered_data =  data[latest_job][sector_select] # here add [sector_select] for high-priority selection
     ordered_matches = []
     match_overlap_data = defaultdict(int)
     for match in filtered_data:
