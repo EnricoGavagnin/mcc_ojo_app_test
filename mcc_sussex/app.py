@@ -115,7 +115,8 @@ sector_select = st.radio(
         "Health and Care"
     ],
     horizontal = True)
-
+if not sector_select == "Show all":
+    st.markdown("""Brief description of the high-priority sector """)    
 st.markdown("""<hr style="height:3px;border:none;color:#e5cbff;background-color:#e5cbff;" /> """, unsafe_allow_html=True)
 
 if latest_job != "": # only run the next bits once the user has entered a latest job
