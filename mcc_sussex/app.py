@@ -42,20 +42,21 @@ def load_data() -> Dict[
     return get_similarity_data()
 
 @st.cache_data(show_spinner = "Calculating job similarity")
-def filter_job(latest_job: str, data: Dict[str, List[Dict[str, Union[str, float, List[str]]]]]) -> Tuple[List[Dict[str, Union[str, float, List[str]]]],List[str], Dict[str, int]]:
+def filter_job(latest_job: str, sector_select: str, data: Dict[str, List[Dict[str, Union[str, float, List[str]]]]]) -> Tuple[List[Dict[str, Union[str, float, List[str]]]],List[str], Dict[str, int]]:
     """filter the full data to only include data about the input job
 
     Args:
         latest_job (str): job inputted by user via filter
+        sector_select (str): high-priority sector selection
         data (Dict[str, List[Dict[str, Union[str, float, List[str]]]]]): full dictionary with all match metadata
 
     Returns:
         Tuple[List[Dict[str, Union[str, float, List[str]]]],List[str], Dict[str, int]]: 
-            - List[Dict[str, Union[str, float, List[str]]]]: list of metadata on matches for current job
+            - List[Dict[str, Union[str, float, List[str]]]]: list of metadata on matches for current job and high-priority sector
             - List[str]: ordered list of names of top matches
             - Dict[str, int]: key: match, value: percent of skills already posessed
     """
-    filtered_data =  data[latest_job]
+    filtered_data =  data[latest_job] # here add [sector_select] for high-priority selection
     ordered_matches = []
     match_overlap_data = defaultdict(int)
     for match in filtered_data:
