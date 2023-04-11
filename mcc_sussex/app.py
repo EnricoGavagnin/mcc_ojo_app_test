@@ -120,7 +120,7 @@ st.markdown("""<hr style="height:3px;border:none;color:#e5cbff;background-color:
 
 if latest_job != "": # only run the next bits once the user has entered a latest job
     #filter dictionary to return data on selected job (stored as latest_job)
-    job_data, ordered_matches, match_overlaps = filter_job(latest_job, data)
+    job_data, ordered_matches, match_overlaps = filter_job(latest_job, sector_select, data)
 
     #generate bar chart to show top matches and skill overlaps
     match_overlap_bars = alt.Chart(match_overlaps).mark_bar().encode(
