@@ -157,7 +157,7 @@ if latest_job != "": # only run the next bits once the user has entered a latest
     with text:
         st.markdown("*To learn more about how to transition into each of these jobs, expand the corresponding sections below*")
     
-    with st.expander(label = st.markdown("**{}**".format(ordered_matches[0]))):
+    with st.expander(label = "**" + ordered_matches[0] + "**"):
         #display matching and missing skills for top match
         match_data = job_data[0]
         matches, bar, missing = st.columns([5,1,5])
